@@ -4,4 +4,4 @@ requests==2.31.0
 black==24.4.0
 isort==5.13.0
 pytest==8.2.0
-ruff==0.0.300
+ruff==0.11.3
