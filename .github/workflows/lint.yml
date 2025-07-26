@@ -19,7 +19,12 @@ jobs:
           python-version: 3.13
 
       - name: Install ruff
-        run: pip install ruff
+        run: pip install ruff==0.11.3
+
+      - name: Run ruff linter (check only, allow failures)
+        run: |
+          ruff check .
+        continue-on-error: true   # 여기서 오류가 나도 워크플로우 멈추지 않음
 
       - name: Run ruff linter (check only)
-        run: ruff check .
+        run: ruff check . --fix

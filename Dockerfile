@@ -14,7 +14,7 @@ COPY requirements.txt .
 COPY uv.lock .
 
 # 의존성 설치
-RUN pip install -r requirements.txt --system
+RUN uv pip install -r requirements.txt --system
 
 # 소스 코드 복사
 COPY . .
