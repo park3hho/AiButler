@@ -15,11 +15,17 @@ uvicorn = { extras = ["standard"], version = "^0.22.0" }
 requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^7.0.0"
-black = "^24.4.0"
+ruff = "^0.0.300"
 isort = "^5.13.0"
 pytest = "^8.2.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "C90"]  # 활성화할 룰 (flake8 호환 룰 등)
+exclude = ["tests/*", "docs/*"]   # 제외할 경로
+
+# 필요시 더 세부 설정 추가 가능
