@@ -1,0 +1,23 @@
+[[package]]
+name = "fastapi"
+version = "0.111.0"
+description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "starlette"
+version = "0.27.0"
+description = "The little ASGI framework that shines."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "uvicorn"
+version = "0.22.0"
+description = "The lightning-fast ASGI server implementation, using uvloop and httptools."
+category = "main"
+optional = false
+python-versions = ">=3.7"

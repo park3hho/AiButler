@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ai-butler"
+version = "0.1.0"
+description = "AI Butler"
+authors = ["iwill <iwill@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+
+[tool.poetry.group.main.dependencies]
+python = "^3.13"
+fastapi = "^0.111.0"
+uvicorn = { extras = ["standard"], version = "^0.22.0" }
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+black = "^24.4.0"
+isort = "^5.13.0"
+pytest = "^8.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,12 @@
+# python
+__pycache__/
+*.pyc
+
+# git
+.git
+.github
+
+
+# OS
+.env
+.DS_Store
