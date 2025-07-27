@@ -1,15 +1,7 @@
-from google.ai import generativelanguage as genai
-
-
-async def exposure_opinion(external_stimuli):
-    # 예) prompt 만들기
-    prompt = genai.types.TextPrompt(text="안녕, 오늘 날씨 어때?")
-
-
-    # API 호출
-    response: genai.types.GenerateContentResponse = model.generate_content(prompt=prompt)
-
-    # 실제 답변 텍스트 얻기
-    answer = response.candidates[0].content
-
-    print("Gemini 답변:", answer)
+basic_prompt = [
+    """
+    필수로 지켜야 하는 답변의 형식: 
+        조건1: 단답형 (채소의 종류와 개수만 나열할 것)
+        예시) 보이는 채소: 감자2, 당근3, 가지2, 양파5
+    """
+]
