@@ -5,3 +5,11 @@ black==24.4.0
 isort==5.13.0
 pytest==8.2.0
 ruff==0.11.3
+opencv-python==4.10.0.82
+orjson==3.11.0
+numpy==1.26.4 # opencv는 1.x.x 버전이랑만 됨
+Pillow==10.4.0
+python-dotenv==1.1.1
+jinja2==3.1.2
+pydantic==2.6.4
+google-generativeai==0.7.0

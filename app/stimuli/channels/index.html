@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webcam Streaming</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                text-align: center;
+                padding: 20px;
+            }
+            h1 {
+                color: #333;
+            }
+            img {
+                border: 3px solid #555;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            input[type="text"] {
+                padding: 10px;
+                width: 300px;
+                font-size: 16px;
+                border: 2px solid #555;
+                border-radius: 5px;
+                outline: none;
+                transition: border-color 0.3s ease;
+            }
+            input[type="text"]:focus {
+                border-color: #007BFF;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Webcam Live Stream</h1>
+        <img src="/video_feed" width="640" height="480" />
+        <br />
+        <form action="/accept_external_stimuli" method="post">
+          <input type="text" name="stimuli" placeholder="여기에 입력하세요" />
+          <button type="submit">전송</button>
+        </form>
+        <div id="answer">{{ answer | default('') }}</div>
+    </body>
+</html>
