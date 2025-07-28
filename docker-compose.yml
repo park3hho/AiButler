@@ -1,12 +1,27 @@
 services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
   ai-butler:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ai-butler:latest   # 명시적으로 이미지 이름 지정
+    build: .
+    depends_on:
+      - db
     ports:
       - "8000:8000"
+    environment:
+      DATABASE_URL: ${POSTGRES_URL}
     volumes:
-      - .:/app   # 로컬 소스코드 디렉토리 마운트 (경로는 상황에 맞게 수정)\
-
+      - .:/app  # 로컬 소스코드 디렉토리 마운트 (경로는 상황에 맞게 수정)
     command: uvicorn asgi:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  pgdata:

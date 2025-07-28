@@ -8,22 +8,28 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.13"
 fastapi = "^0.111.0"
-uvicorn = { extras = ["standard"], version = "^0.22.0" }
 requests = "^2.31.0"
 opencv-python = "^4.10.0.82"
+
+[tool.poetry.dependencies.uvicorn]
+extras = ["standard"]
+version = "^0.22.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.11.3"
 isort = "^5.13.0"
 pytest = "^8.2.0"
 
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "C90"]
+exclude = ["tests/*", "docs/*"]
+
+[tool.aerich]
+tortoise_orm = "app.configs.postgres.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-line-length = 88
-select = ["E", "F", "W", "C90"]  # 활성화할 룰 (flake8 호환 룰 등)
-exclude = ["tests/*", "docs/*"]   # 제외할 경로
-
-# 필요시 더 세부 설정 추가 가능
