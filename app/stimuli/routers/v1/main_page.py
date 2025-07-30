@@ -25,9 +25,6 @@ def register_form(request: Request):
 
 @router.get("/video_feed")
 def video_feed():
-    """
-    비디오 스트림을 제공합니다.
-    """
     return StreamingResponse(
         gen_frames(), media_type="multipart/x-mixed-replace; boundary=frame"
     )
