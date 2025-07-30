@@ -52,30 +52,10 @@ async def login(request: Request, email: str = Form(...), password: str = Form(.
 
 @router.post("/logout")
 async def logout():
-    """
-    로그아웃 기능을 처리합니다.
-    클라이언트의 'access_token' 쿠키를 삭제하고 대시보드 또는 로그인 페이지로 리디렉션합니다.
-    """
-    response = RedirectResponse(
-        url="/login", status_code=status.HTTP_303_SEE_OTHER
-    )  # 로그아웃 후 리디렉션할 페이지 지정
-    # access_token 쿠키 삭제: 만료 시간을 과거로 설정하여 브라우저가 즉시 삭제하도록 합니다.
+    response = RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
     response.delete_cookie(
         key="access_token", httponly=True, secure=False, samesite="lax"
     )
     return response
 
 
-# GET 요청을 위한 로그아웃 (선택 사항)
-# 웹 브라우저에서 직접 URL로 접근하는 경우를 위해 GET 요청도 고려할 수 있습니다.
-# 하지만 보안상 POST 요청을 권장합니다. CSRF 공격에 취약할 수 있습니다.
-@router.get("/logout")
-async def logout_get():
-    """
-    GET 요청으로 로그아웃 기능을 처리합니다. (보안상 POST를 권장)
-    """
-    response = RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
-    response.delete_cookie(
-        key="access_token", httponly=True, secure=False, samesite="lax"
-    )
-    return response
