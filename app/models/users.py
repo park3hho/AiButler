@@ -1,6 +1,7 @@
 from tortoise import fields
 from tortoise.models import Model
 
+
 class UserModel(Model):
     id = fields.IntField(pk=True)
     email = fields.CharField(max_length=255, unique=True)

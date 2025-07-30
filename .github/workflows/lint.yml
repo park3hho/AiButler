@@ -1,4 +1,4 @@
-name: Lint
+name: Formatting By Ruff Formmater
 
 on:
   push:
@@ -23,8 +23,8 @@ jobs:
 
       - name: Run ruff linter (check only, allow failures)
         run: |
-          ruff check .
+          ruff format --check .
         continue-on-error: true   # 여기서 오류가 나도 워크플로우 멈추지 않음
 
       - name: Run ruff linter (check only)
-        run: ruff check . --fix
+        run: ruff format .

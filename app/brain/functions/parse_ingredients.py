@@ -10,8 +10,8 @@ def parse_ingredients(response_text):
     for item in items:
         item = item.strip()
         # 숫자랑 단어 분리
-        name = ''.join(filter(str.isalpha, item))
-        amount = item.replace(name, '').strip()
+        name = "".join(filter(str.isalpha, item))
+        amount = item.replace(name, "").strip()
         result[name] = amount
 
     return result

@@ -4,6 +4,7 @@ import time
 
 VIDEO_PATH = "app/eyes/visual_stimulus_samples/sv.mp4"
 
+
 def gen_frames():
     cap = cv2.VideoCapture(VIDEO_PATH)
 
@@ -21,11 +22,12 @@ def gen_frames():
             cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # 영상 끝나면 처음으로
             continue
 
-        ret, buffer = cv2.imencode('.jpg', frame)
+        ret, buffer = cv2.imencode(".jpg", frame)
         frame_bytes = buffer.tobytes()
 
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+        yield (b"--frame\r\nContent-Type: image/jpeg\r\n\r\n" + frame_bytes + b"\r\n")
 
         time.sleep(delay)  # 🔸 프레임 사이에 딜레이 추가
- # 열려있는 모든 창 닫기
+
+
+# 열려있는 모든 창 닫기

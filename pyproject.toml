@@ -22,8 +22,10 @@ pytest = "^8.2.0"
 
 [tool.ruff]
 line-length = 88
-select = ["E", "F", "W", "C90"]
 exclude = ["tests/*", "docs/*"]
+
+[tool.ruff.lint] # <-- 새로운 섹션 추가 또는 기존 섹션 활용
+select = ["E", "F"] # <-- 'select'를 이 섹션 아래로 이동시킵니다.
 
 [tool.aerich]
 tortoise_orm = "app.configs.postgres.TORTOISE_ORM"

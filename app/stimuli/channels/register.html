@@ -1,0 +1,54 @@
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입 | AI Butler</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input, button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.6rem;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <form class="register-container" action="/register/register" method="post">
+    <h2>회원가입</h2>
+    <input type="text" name="name" placeholder="이름" required />
+    <input type="email" name="email" placeholder="이메일" required />
+    <input type="password" name="password" placeholder="비밀번호" required />
+    <input type="password" name="confirm_password" placeholder="비밀번호 확인" required />
+    <button type="submit">가입하기</button>
+  </form>
+</body>
+</html>

@@ -2,11 +2,12 @@ import cv2
 import io
 from PIL import Image
 
+
 def accept_visual_stimuli(video_path, frame_rate):
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
     frame_number = 0
-    keyframes = [] # 이미지 바이트화된 것을 담을 리스트
+    keyframes = []  # 이미지 바이트화된 것을 담을 리스트
 
     while cap.isOpened():
         ret, frame = cap.read()
