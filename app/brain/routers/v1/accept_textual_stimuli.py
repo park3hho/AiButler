@@ -9,7 +9,7 @@ from app.eyes.functions.accept_visual_stimuli import accept_visual_stimuli
 from app.brain.functions.process_images import process_image
 from app.brain.functions.exposure_opinion import basic_prompt
 from app.brain.functions.parse_ingredients import parse_ingredients
-router = APIRouter()
+router = APIRouter(prefix="/dashboard", tags=["Brain"])
 load_dotenv()  # .env 파일에서 환경변수 로드
 ego = os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # 환경변수로 API 키 저장 권장
@@ -33,6 +33,6 @@ async def answer_question(request: Request, stimuli: str = Form(...)):
     print("Gemini 답변:", answer)
     print(parse_ingredients(answer))
 
-    return templates.TemplateResponse("index.html", {"request": request, "answer": answer})
+    return templates.TemplateResponse("dashboard.html", {"request": request, "answer": answer})
 
 

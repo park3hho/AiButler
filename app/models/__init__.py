@@ -1,3 +1,3 @@
-from .ingredients import Ingredient
-from .users import User
-from .categories import Category
+from .ingredients import IngredientModel
+from .users import UserModel
+from .categories import IngCategoryModel

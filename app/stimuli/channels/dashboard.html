@@ -29,16 +29,35 @@
             input[type="text"]:focus {
                 border-color: #007BFF;
             }
+            /* 로그아웃 버튼 스타일 */
+            .logout-button {
+                background-color: #dc3545; /* 빨간색 계열 */
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 20px; /* 다른 요소와의 간격 */
+                transition: background-color 0.3s ease;
+            }
+            .logout-button:hover {
+                background-color: #c82333; /* 호버 시 더 진한 색 */
+            }
         </style>
     </head>
     <body>
         <h1>Webcam Live Stream</h1>
         <img src="/video_feed" width="640" height="480" />
         <br />
-        <form action="/accept_textual_stimuli" method="post">
+        <form action="/dashboard/accept_textual_stimuli" method="post">
           <input type="text" name="stimuli" placeholder="여기에 입력하세요" />
           <button type="submit">전송</button>
         </form>
         <div id="answer">{{ answer | default('') }}</div>
+
+        <form action="/logout" method="post">
+            <button type="submit" class="logout-button">로그아웃</button>
+        </form>
     </body>
 </html>
